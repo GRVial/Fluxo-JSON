@@ -45,7 +45,7 @@ class GoogleAPIClient:
             print(f"Erro ao listar arquivos do Google Drive: {error}")
             raise
 
-    def get_form_json(self, form_id: str):
+    def get_form_json(self, form_id: str) -> dict:
         try:
             form = self.forms_service.forms().get(formId=form_id).execute()
             return form
