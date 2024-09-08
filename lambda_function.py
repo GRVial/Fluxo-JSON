@@ -2,7 +2,7 @@ import os
 import json
 import boto3
 from GoogleAPIClient import GoogleAPIClient
-from refactor_form import get_new_form
+from RefactorForm import RefactorForm
 
 GOOGLE_API_AUTH_FILE = os.environ.get('GOOGLE_API_AUTH_FILE')
 
@@ -28,7 +28,7 @@ def handler(event, context):
         elif response_type == 'json':
             form_id = query_params.get('formId')
             form_dict = google_api_client.get_form_json(form_id)
-            new_form_dict = get_new_form(form_dict)
+            new_form_dict = RefactorForm.get_new_form(form_dict)
             response = {
                 'statusCode': 200,
                 'body': json.dumps(new_form_dict, ensure_ascii=False),
