@@ -12,7 +12,7 @@ class RequestHandler:
         if handler is None:
             return RequestHandler._response_404('Not found')
 
-        method = event['http']['method']
+        method = event['requestContext']['http']['method']
         if (method not in handler['allowed_methods']):
             return {
                 'statusCode': 405,
