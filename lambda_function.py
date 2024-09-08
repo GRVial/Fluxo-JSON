@@ -2,7 +2,6 @@ import os
 import json
 import boto3
 from GoogleAPIClient import GoogleAPIClient
-from RefactorForm import RefactorForm
 from RequestHandler import RequestHandler
 
 GOOGLE_API_AUTH_FILE = os.environ.get('GOOGLE_API_AUTH_FILE')
