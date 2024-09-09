@@ -2,18 +2,22 @@ class RefactorForm:
     
     @classmethod
     def get_new_form(cls, old_form:dict) -> dict:
+        title = old_form['info'].get('title', None)
+        if title is None:
+            title = old_form['info'].get('documentTitle', None)
+
         return {
-            'title': old_form['info']['title'],
-            'sections': cls._get_sections(old_form)
+            'title': title,
+            'sections': cls._get_sections(old_form, title)
         }
 
     @classmethod
-    def _get_sections(cls, old_form):
+    def _get_sections(cls, old_form, title):
         sections = []
 
         current_section = {
             'sectionId': 'FIRST_SECTION',
-            'title': old_form['info']['title'],
+            'title': title,
         }
         current_section_items = []
 
