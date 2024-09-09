@@ -62,7 +62,10 @@ class RequestHandler:
         form_id = query_params.get('formId', None)
 
         if form_id is None:
-            return RequestHandler._response_404('Missing form id')
+            return {
+            'statusCode': 400,
+            'body': 'Missing form id'
+        }
 
         form_dict = google_api_client.get_form_json(form_id)
 
