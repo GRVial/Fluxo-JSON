@@ -46,14 +46,14 @@ class RefactorForm:
         return {
             'itemId': item['itemId'],
             'type': 'textItem',
-            'text': item['title'],
+            'text': item.get('title', None),
             'description': item['description'],
         }
     
     @classmethod
     def _question_item(cls, item) -> dict:
         item_id = item['itemId']
-        question_text = item['title']
+        question_text = item.get('title', None)
         description = item.get('description', None)
 
         question = item['questionItem']['question']
@@ -116,7 +116,7 @@ class RefactorForm:
     def _new_section(cls, item) -> dict:
         new_section = {
                     'sectionId': item['itemId'],
-                    'title': item['title'],
+                    'title': item.get('title', None),
                 }
         
         return new_section
