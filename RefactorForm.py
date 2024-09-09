@@ -18,6 +18,7 @@ class RefactorForm:
         current_section = {
             'sectionId': 'FIRST_SECTION',
             'title': title,
+            'description': old_form['info'].get('description', None)
         }
         current_section_items = []
 
