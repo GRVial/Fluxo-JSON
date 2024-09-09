@@ -23,7 +23,7 @@ class RefactorForm:
 
         for item in old_form['items']:
             if 'pageBreakItem' in item:
-                current_section['items'] = current_section_items  
+                current_section['items'] = current_section_items
                 sections.append(current_section)
 
                 current_section = cls._new_section(item)
@@ -121,6 +121,7 @@ class RefactorForm:
         new_section = {
                     'sectionId': item['itemId'],
                     'title': item.get('title', None),
+                    'description': item.get('description', None)
                 }
         
         return new_section
