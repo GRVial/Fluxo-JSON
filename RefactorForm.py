@@ -36,6 +36,9 @@ class RefactorForm:
             if new_item is not None:
                 current_section_items.append(new_item)
 
+        current_section['items'] = current_section_items
+        sections.append(current_section)
+
         return sections
 
     @classmethod
