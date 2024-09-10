@@ -52,7 +52,7 @@ class RefactorForm:
             'itemId': item['itemId'],
             'type': 'textItem',
             'text': item.get('title', None),
-            'description': item['description'],
+            'description': item.get('description', None)
         }
     
     @classmethod
