@@ -90,7 +90,7 @@ class RefactorForm:
             'options': [
                 {
                     'value': option['value'],
-                    'goToSectionId': option.get('goToSectionId', None)
+                    'goToSectionId': "FIRST_SECTION" if option.get('goToAction', None) == "RESTART_FORM" else option.get('goToSectionId', None)
                 }
                 for option in question['choiceQuestion']['options'] if 'value' in option
             ]
